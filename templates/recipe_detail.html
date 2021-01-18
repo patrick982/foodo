@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Recipe Detail
+{% endblock %}
+
+{% block main %}
+<div class="detail">
+    <form action="/recipe_detail" method="get">
+        <h1>{{recipe_id}} {{name}}</h1>
+        <h3>Description</h3>
+        <p>{{description}}</p>
+        <h3>Ingredients</h3>
+        <p>{{ingredients}}</p>
+        <h3>Directions</h3>
+        <p>{{directions}}</p>
+        <p><b>Prep Time:</b> {{prep_time}} min</p>
+        <p><b>Cokking Time:</b> {{cooking_time}} min</p>
+        <h3>Tips</h3>
+        <p>{{tips}}</p>
+        <p><b>Image</b><p>
+        <p><img src="/static/{{image}}" alt="{{image}} width="200" height="300""></p>
+        <p><a class="btn btn-primary" type="hidden" name="edit" value="recipe_id" href="/recipe_edit/{{ recipe_id }}">Edit</a></p>
+    </form>
+</div>
+{% endblock %}

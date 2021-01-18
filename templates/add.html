@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add
+{% endblock %}
+
+{% block main %}
+    <form action="/add" method="post" enctype = "multipart/form-data">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="name" placeholder="Recipe Name" type="text" required>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="description" placeholder="Description" type="text" required>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" rows="5" name="ingredients" placeholder="Ingredients" type="textarea" required></textarea>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" rows="5" name="directions" placeholder="Directions" type="textarea"></textarea>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="prep_time" placeholder="Prep Time (min)" type="number" required>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="cooking_time" placeholder="Cooking Time (min)" type="number" required>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" rows="2" name="tips" placeholder="Tips" type="textarea"></textarea>
+        </div>
+        <div class="form-group">
+             <label for="file">Upload image:</label>
+             <input type="file" id="file" name="file" accept="image/*">
+        </div>
+        <button class="btn btn-primary" type="submit">add recipe</button>
+    </form>
+{% endblock %}

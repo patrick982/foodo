@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Recipe Edit
+{% endblock %}
+
+{% block main %}
+    <form action="/recipe_edit/{{ recipe_id }}" method="post" enctype = "multipart/form-data">
+        <div class="form-group">
+            <label for="name">Recipe name: </label>
+            <input autocomplete="off" autofocus class="form-control" name="name" value="{{ name }}" type="text" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Recipe description: </label>
+            <input autocomplete="off" autofocus class="form-control" name="description" value="{{ description }}" type="text" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Ingredients: </label>
+            <textarea class="form-control" rows="5" name="ingredients" value="{{ ingredients }}" type="textarea" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="name">Directions: </label>
+            <textarea class="form-control" rows="5" name="directions" value="{{ directions }}" type="textarea"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="name">Prep Time: </label>
+            <input autocomplete="off" autofocus class="form-control" name="prep_time" value="{{ prep_time }}" type="number" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Cooking Time: </label>
+            <input autocomplete="off" autofocus class="form-control" name="cooking_time" value="{{ cooking_time }}" type="number" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Tips: </label>
+            <textarea class="form-control" rows="2" name="tips" value="{{ tips }}" type="textarea"></textarea>
+        </div>
+        <div class="form-group">
+             <label for="file">Update image: </label>
+             <input type="file" id="file" name="file" accept="image/*">
+        </div>
+        <button class="btn btn-primary" type="submit">edit recipe</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <form action="/history" method="get">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Operation</th>
+              <th scope="col">Name</th>
+              <th scope="col">DATETIME</th>
+            </tr>
+          </thead>
+          <tbody>
+              {% for log in logs %}
+            <tr>
+              <th scope="row">{{ log.id }}</th>
+              <td>{{ log.operation }}</td>
+              <td>{{ log.name }}</td>
+              <td>{{ log.datetime }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Todo
+{% endblock %}
+
+{% block main %}
+    <form action="/todo" method="post">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Item</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+              {% for todo in todos %}
+            <tr>
+              <th scope="row">{{ todo.id }}</th>
+              <td>{{ todo.item }}</td>
+              <td><button class="btn btn-primary" type="submit" name="delete" value="{{ todo.id }}">done</button></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <a href="/add_todo" class="btn btn-info" role="button">add item</a>
+    </form>
+{% endblock %}

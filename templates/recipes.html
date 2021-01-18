@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Recipes
+{% endblock %}
+
+{% block main %}
+    <form action="/recipes" method="post">
+        <table style="table-layout:dynamic;" class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th width="600px" scope="col">Description</th>
+              <th scope="col">Prep Time</th>
+              <th scope="col">Cooking Time</th>
+              <th scope="col">Details</th>
+            </tr>
+          </thead>
+          <tbody>
+              {% for recipe in recipes %}
+            <tr>
+              <th scope="row">{{ recipe.id }}</th>
+              <td id="limit">{{ recipe.name }}</td>
+              <td id="limit">{{ recipe.description }}</td>
+              <td id="limit">{{ recipe.prep_time }}</td>
+              <td id="limit">{{ recipe.cooking_time }}</td>
+              <td><a class="btn btn-primary" type="hidden" name="detail" value="{{ recipe.id }}" href="/recipe_detail/{{ recipe.id }}">check out</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+    </form>
+{% endblock %}
